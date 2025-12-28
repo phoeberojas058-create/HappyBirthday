@@ -41,11 +41,43 @@
         margin: 30px auto;
         text-align: center;
     }
-
-    img {
-        max-width: 100%;
-        border-radius: 15px;
+/* Horizontal scrolling pictures */
+    .pictures-row {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 10px;
+        padding: 20px 0;
+        -webkit-overflow-scrolling: touch;
     }
+      .picture-item {
+        flex: 0 0 auto; /* don't shrink or grow */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .picture-item img {
+        max-height: 500px; /* adjust to taste */
+        height: auto;
+        width: auto;
+        max-width: 1000px; /* adjust width if needed */
+        border-radius: 10px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        transition: transform 0.3s;
+        background-color: white; /* in case of portrait/rectangle spacing */
+    }
+
+    .picture-item:hover img {
+        transform: scale(1.05);
+    }
+	.caption {
+			margin-top: 8px;
+			font-size: 16px;
+			color: #333;
+			text-align: center;
+		}
+	
 
     /* Letters Grid */
     .letters-grid {
@@ -114,7 +146,7 @@
 <!-- Homepage -->
 <div id="homepage">
     <h1>Happy Birthday, Love! 🎉</h1>
-    <p>Welcome to Crush special gift! Click below to see what I made for Crush 💖</p>
+    <p>Welcome to Mahal na special gift! Click below to see what I made for my Love 💖</p>
     <a href="#pictures" class="button" onclick="showPage('pictures')">Pictures Album</a>
     <a href="#letters" class="button" onclick="showPage('letters')">Letters</a>
 </div>
@@ -122,10 +154,87 @@
 <!-- Pictures Album -->
 <div id="pictures" class="content" style="display:none;">
     <h1>Pictures Album 📸</h1>
-    <div>
-        <img src="https://via.placeholder.com/400x300?text=Picture+1" alt="Picture 1">
-        <img src="https://via.placeholder.com/400x300?text=Picture+2" alt="Picture 2">
-        <img src="https://via.placeholder.com/400x300?text=Picture+3" alt="Picture 3">
+    <div class="pictures-row">
+        <div class="picture-item">
+            <img src="1.jpg" alt="Picture 1">
+            <div class="caption">Our Solo Trip</div>
+        </div>
+        <div class="picture-item">
+            <img src="2.jpg" alt="Picture 2">
+            <div class="caption">Cute moment</div>
+        </div>
+        <div class="picture-item">
+            <img src="3.jpg" alt="Picture 3">
+            <div class="caption">Family Gala</div>
+        </div>
+        <div class="picture-item">
+            <img src="4.jpg" alt="Picture 4">
+            <div class="caption">First Intrams</div>
+        </div>
+        <div class="picture-item">
+            <img src="5.jpg" alt="Picture 5">
+            <div class="caption">Our first Complete Gala(mcdo)</div>
+        </div>
+        <div class="picture-item">
+            <img src="6.jpg" alt="Picture 6">
+            <div class="caption">Sleepover moments</div>
+        </div>
+		<div class="picture-item">
+            <img src="7.jpg" alt="Picture 6">
+            <div class="caption">Random days to take a pic after class</div>
+        </div>
+		<div class="picture-item">
+            <img src="8.jpg" alt="Picture 6">
+            <div class="caption">First ever Christmas party with ewl</div>
+        </div>
+		<div class="picture-item">
+            <img src="9.jpg" alt="Picture 6">
+            <div class="caption">Pretty Always</div>
+        </div>
+		<div class="picture-item">
+            <img src="10.jpg" alt="Picture 6">
+            <div class="caption">First dance sa stage together with ewl</div>
+        </div>
+		<div class="picture-item">
+            <img src="11.jpg" alt="Picture 6">
+            <div class="caption">Another happy moment</div>
+        </div>
+		<div class="picture-item">
+            <img src="12.jpg" alt="Picture 6">
+            <div class="caption">First roadtrip to Dapitan</div>
+        </div>
+		<div class="picture-item">
+            <img src="13.jpg" alt="Picture 6">
+            <div class="caption">Thank you! Luisa</div>
+        </div>
+		<div class="picture-item">
+            <img src="14.jpg" alt="Picture 6">
+            <div class="caption">Stay kind and pretty!</div>
+        </div>
+		<div class="picture-item">
+            <img src="15.jpg" alt="Picture 6">
+            <div class="caption">Its been 2 or 1 yr half, still your roommate</div>
+        </div>
+		<div class="picture-item">
+            <img src="16.jpg" alt="Picture 6">
+            <div class="caption">Your favorite roommate</div>
+        </div>
+		<div class="picture-item">
+            <img src="17.jpg" alt="Picture 6">
+            <div class="caption">SIRIUS LANG SAKALAM</div>
+        </div>
+		<div class="picture-item">
+            <img src="19.jpg" alt="Picture 6">
+            <div class="caption">Our first photo booth love</div>
+        </div>
+		<div class="picture-item">
+            <img src="20.jpg" alt="Picture 6">
+            <div class="caption">Kyutie Patooties</div>
+        </div>
+		<div class="picture-item">
+            <img src="21.jpg" alt="Picture 6">
+            <div class="caption">Our first ever date</div>
+        </div>
     </div>
     <br>
     <button class="button" onclick="showPage('homepage')">Back to Home</button>
@@ -138,80 +247,164 @@
     <!-- Grid of 20 names -->
     <div id="names-grid" class="letters-grid">
         <!-- Generate 20 letters -->
-        <div class="letter-name" onclick="showLetter('Letter1')">Alice</div>
-        <div class="letter-name" onclick="showLetter('Letter2')">Bob</div>
-        <div class="letter-name" onclick="showLetter('Letter3')">Charlie</div>
-        <div class="letter-name" onclick="showLetter('Letter4')">David</div>
-        <div class="letter-name" onclick="showLetter('Letter5')">Emma</div>
-        <div class="letter-name" onclick="showLetter('Letter6')">Fiona</div>
-        <div class="letter-name" onclick="showLetter('Letter7')">George</div>
-        <div class="letter-name" onclick="showLetter('Letter8')">Hannah</div>
-        <div class="letter-name" onclick="showLetter('Letter9')">Ivy</div>
-        <div class="letter-name" onclick="showLetter('Letter10')">Jack</div>
-        <div class="letter-name" onclick="showLetter('Letter11')">Kate</div>
-        <div class="letter-name" onclick="showLetter('Letter12')">Liam</div>
-        <div class="letter-name" onclick="showLetter('Letter13')">Mia</div>
-        <div class="letter-name" onclick="showLetter('Letter14')">Noah</div>
-        <div class="letter-name" onclick="showLetter('Letter15')">Olivia</div>
-        <div class="letter-name" onclick="showLetter('Letter16')">Paul</div>
-        <div class="letter-name" onclick="showLetter('Letter17')">Quinn</div>
-        <div class="letter-name" onclick="showLetter('Letter18')">Rose</div>
-        <div class="letter-name" onclick="showLetter('Letter19')">Sam</div>
-        <div class="letter-name" onclick="showLetter('Letter20')">Tina</div>
-		<div class="letter-name" onclick="showLetter('Letter20')">Someone</div>
+        <div class="letter-name" onclick="showLetter('Letter1')">Mimi</div>
+        <div class="letter-name" onclick="showLetter('Letter2')">First Lady of Dipolog (zia)</div>
+        <div class="letter-name" onclick="showLetter('Letter3')">kitkit</div>
+        <div class="letter-name" onclick="showLetter('Letter4')">Kird</div>
+        <div class="letter-name" onclick="showLetter('Letter5')">Brex</div>
+        <div class="letter-name" onclick="showLetter('Letter6')">Jana</div>
+        <div class="letter-name" onclick="showLetter('Letter7')">zee/zy</div>
+        <div class="letter-name" onclick="showLetter('Letter8')">Lelet</div>
+        <div class="letter-name" onclick="showLetter('Letter9')">Vel 🌑🧃</div>
+        <div class="letter-name" onclick="showLetter('Letter10')">ramraam hehehe</div>
+        <div class="letter-name" onclick="showLetter('Letter11')">partner in crime (legit kay naa ta patyon HAHAHHA)</div>
+        <div class="letter-name" onclick="showLetter('Letter12')">Lygem</div>
+		<div class="letter-name" onclick="showLetter('Letter13')">Kaye</div>
+        <div class="letter-name" onclick="showLetter('Letter14')">Frayle ng Pisay</div>
+		<div class="letter-name" onclick="showLetter('Letter15')">Kird</div>
  
 	   <!-- Special Message at bottom -->
         <div class="special-letter" onclick="showLetter('Special')">💖 My Special Message 💖</div>
     </div>
     <!-- Full letters -->
     <div id="full-letters" style="display:none;">
-        <div id="Letter1" class="letter-note"><strong>Alice:</strong>
-			<br>Happy Birthday! Wishing you a wonderful day! 🎉</div>
-        <div id="Letter2" class="letter-note"><strong>Bob:</strong>
-			<br>Hope your birthday is full of love and joy! 💖</div>
-        <div id="Letter3" class="letter-note"><strong>Charlie:</strong>
-			<br>Have an amazing day filled with happiness! 🥰</div>
-        <div id="Letter4" class="letter-note"><strong>David:</strong>
-			<br>Wishing you smiles and laughter today! 🌸</div>
-        <div id="Letter5" class="letter-note"><strong>Emma:</strong>
-			<br>Happy Birthday! You deserve the best! 💌</div>
-        <div id="Letter6" class="letter-note"><strong>Fiona:</strong>
-			<br>Sending love and happiness your way! ❤️</div>
-        <div id="Letter7" class="letter-note"><strong>George:</strong>
-			<br>Hope your day is as special as you are! 🌹</div>
-        <div id="Letter8" class="letter-note"><strong>Hannah:</strong>
-			<br>Wishing you joy, love, and laughter! 🎈</div>
-        <div id="Letter9" class="letter-note"><strong>Ivy:</strong>
-			<br>May your birthday be unforgettable and magical! ✨</div>
-        <div id="Letter10" class="letter-note"><strong>Jack:</strong>
-			<br>Happy Birthday! Sending you big hugs! 🤗</div>
-        <div id="Letter11" class="letter-note"><strong>Kate:</strong>
-			<br>Hope your day is filled with love and smiles! 💖</div>
-        <div id="Letter12" class="letter-note"><strong>Liam:</strong>
-			<br>Wishing you all the happiness in the world! 🌸</div>
-        <div id="Letter13" class="letter-note"><strong>Mia:</strong>
-			<br>Have a beautiful and joyful birthday! 🥰</div>
-        <div id="Letter14" class="letter-note"><strong>Noah:</strong>
-			<br>Happy Birthday! Hope your dreams come true! 🎉</div>
-        <div id="Letter15" class="letter-note"><strong>Olivia:</strong>
-			<br>Wishing you endless love and happiness! 💌</div>
-        <div id="Letter16" class="letter-note"><strong>Paul:</strong>
-			<br>Have a magical day filled with smiles! 🌹</div>
-        <div id="Letter17" class="letter-note"><strong>Quinn:</strong>
-			<br>Happy Birthday! Enjoy every moment! 🎈</div>
-        <div id="Letter18" class="letter-note"><strong>Rose:</strong>
-			<br>Wishing you the best day ever! ✨</div>
-        <div id="Letter19" class="letter-note"><strong>Sam:</strong>
-			<br>Hope your birthday is full of love! 💖</div>
-        <div id="Letter20" class="letter-note"><strong>Tina:</strong>
-			<br>Have a wonderful birthday! 🥰</div>
-		<div id="Letter21" class="letter-note"><strong>Someone:</strong>
-			<br>Have a wonderful birthday! 🥰</div>
-        <!-- Special Message -->
+        <div id="Letter1" class="letter-note"><strong>Mimi:</strong>
+			<br>ANG CUTE KAY SI LUISA 🎀 (bow), TO THE CUTESTTTTT CHARRR 🤭💗.
+			‎HAPPY BDAY, COTE 😭 (HAHAHAHA TABANGGG).
+			‎UHMM… waittt, loadinggg…… ⏳
+			‎BITAW BAI, HAPPY BIRTHDAY 🎉🎂. SANA MASAYA KA SA LAYFF ND LAVLAYF MO ETT 💕.
+			‎STAY CUTE ND CUTE 🥹, STAY GORJASSS ND GORJASS ✨💅, AND LASTLY STAY… STAY LIKE YEAHH 😌 (nganong muhawa pod ka diba 🙄).
+			‎PERO BITAW BAI, IDK HOW LIFE WOULD BE LIKE WITHOUT YOU 🥺. I MAY NOT SAY THIS OFTEN, 
+			BUT GOD KNOWS HOW THANKFUL AND GRATEFUL I AM THAT I’M ABLE TO MEET SUCH A WONDERFUL FRIEND LIKE YOU 🤍 
+			(dinako sha gina-ingon cuz no words man gud can express how much u mean to me).
+			‎THE ONE THAT WOULD CORRECT AND LEAD YOU WHEN YOU KNOW THINGS ARE NOT STEADY AND LINEAR 🧭.
+			‎THE ONE THAT WOULD CHEER YOU UP WHEN THINGS ARE HEAVY (mag-joke raka, wana, okay na 😭🤣).
+			‎THE ONE NGA ALWAYS MAG-INGON AND MAG-PUSH SA AKOA NA I NEED TO FIGHT BACK AND NOT BE WEAK 
+			💪—KNOWING PRETTY WELL THAT SHE’S ONE OF THE MOST HUMBLE AND VULNERABLE PERSONS I KNOW 🥹. 
+			YET I ALSO KNOW NA MAONG SOMETIMES MALDITA KA 😏 BECAUSE YOU CHOOSE TO HIDE THAT SIDE OF YOU 
+			SO PEOPLE WON’T SEE YOU AS SOMEONE WHO’S WEAK AND VULNERABLE ENOUGH FOR THEM TO TAKE ADVANTAGE 
+			OF—WHICH IS WAWWW OF YOU AND BAII OKAY RAGYUDD MOIYAK 😌✨.
+			‎THE ONE THAT I TRUST MOST IN THIS WORLDD 🌍 (UNIVERSE RATHER, CHARIIZZ 🤭).
+			‎DINAKO MA-IMAGINE AKOA LIFE, BAI, WITHOUT YOU—BISAN PAG UNSA KA KAMALDITA NAKO BAI 😏💗.
+			‎BITAW, THANK YOU FOR EXISTING AND FOR MAKING MY LIFE WORTH LIVING BY JUST BEING IN IT 😜🫰💞. 
+			EYYY LABYUU BAIII BEYONNDDDD AND INFINITY ♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️♾️</div>
+        <div id="Letter2" class="letter-note"><strong>First Lady of Dipolog (zia):</strong>
+			<br>Dear cute🥰, 
+
+			HAPPIEST BIRTHDAY TO MY 2 YEARS STRICT SEATMATE ESTE STREAK🥰 
+			(being seatmate w you is a free ride school supplies 
+			for the whole school year but no one warns me that part of that 
+			is freely judging my handwriting😡). ANWYS, MAHAL KETA ALAM MO YAN! 
+			LAGING TANDAAN NA KAPAG LIFE IS HARD, ILAAG RANA😙. May the lord grant 
+			all your wishes and unta you will live a thousand years (wow dinosaur yarn)
+			para maka-attend patag concert sa the ridleys ~~ ⁱᶠ ⁱ ᶜᵒᵘˡᵈ ᵇᵉ ᶜᵃⁿᵈⁱᵈ ᵃⁿᵈ ᵗᵉˡˡ ʸᵒᵘ ᵗʰᵉ ᵗʳᵘᵗʰ, ⁱ ʲᵘˢᵗ ʷᵃⁿⁿᵃ ᶠⁱᵍᵘʳᵉ ᵒᵘᵗ ˡᵒᵛᵉ ʷⁱᵗʰ ʸᵒᵘS🎶 
+			(rawrrawr nakuha na jud niya ang person na gi dedicate-tan niya aning kantaha😋). 
+			Know that kung unsa man gani na blessing ang muabot sa imoha, accept it wholeheartedly 
+			bcs I know that u deserve it. If there is anything that’s bothering you, don’t hesitate
+			to message me or just simply tap my shoulders kay silingan raman tag bangko.
+			Always pray and trust the lord, I really hope that you will keep the fire burning inside you. 
+			Thank you sm for being the kind of friend who lightens up the mood and for making this world a 
+			little less boring, your cringey and corny jokes really helps🫶. 
+			To the person who matches my freak, who undertands my humor better than anyone else, 
+			and to the person who shared pain and laughter with me, again, happiest birthdayyyy cute este the ridleys enthusiasttttt🥰!</div>
+        <div id="Letter3" class="letter-note"><strong>kitkit:</strong>
+			<br>Happy 17th Birthday, bestie.
+
+Grabe kaayo no? Since elementary pa ta. Ikaw jud tong maldita kaayo sauna 😭 sige jud ta’g away, labi na tungod sa SPG. Murag kada adlaw naay tampuhan, kasuko, ug hilak. Usahay abi nako dili jud ta magdugay, pero tan-awa ta karon naa pa gihapon ta.
+
+Back in elem, kada naay group works, murag automatic na nga kita magkauban. Maski mag-away ta, sa ulihi kita ra gihapon magtapad, magtinabangay, ug maghuman sa tanan. Katong mga sayaw sa elementary programs, kita pa jud permi mag-lead—kulbaan, sabog usahay, pero basta magkauban ta, kaya ra.
+
+Sa kadugayan, nasabtan nako nga dili ra diay ka basta schoolmate/classmate. Ikaw diay tong tawo nga kauban nako sa tanan sa stress, sa hilak, sa katawa g8 and 9 u know2. Bisag maldita ka, ikaw gihapon tong pinakareal ug pinakatrue nga tawo nga naa sa akong kinabuhi.
+
+Karong 17 na ka, murag mas klaro na nga pas-pas kaayo ang panahon. Soon, mag-college na ta, lain-lain na ug dalan, lain-lain na ug kinabuhi. And honestly, hadlok ko. Pero sana dili ta magkalimtanay. Sana bisan unsa pa ka-busy, ka-layo, o ka-daghan ang bag-ong tawo sa atong life, mahinumduman gihapon ta nga kita tong best friends since elem.
+
+Kung unsa man mahitabo, kabalo ka nga naa ra gihapon ko diri. Same person. Same care. Same love. Ikaw gihapon akong constant nako bahala’g mag-usab ang tanan.
+
+Salamat sa away, sa group works sa elem, sa sayaw nga kita pa mag-lead, ug sa tanang memories nga nag-himo nato kung kinsa ta karon.
+I love you, akong maldita nga best friend. Always. 💗
+
+Happy birthday 🎂</div>
+        <div id="Letter4" class="letter-note"><strong>Kird:</strong>
+			<br>Happiest Birthday, Luisaaa💗💗!! I hope you enjoy your day :>>. I wrote you this letter to tell you I'm super grateful to be your friend. Even though I'm not with you in-person right now,  I'm truly happy that I'm able to partake in this special milestone in your life (sag sa online lang hehe). As this new chapter unfolds, I hope you continue being an amazing woman -- able to achieve your goals and dreams, because you deserve everything good. Just a random fun fact,  na-inspire ka'yo ko with how strong and straightforward you are (literally opposite sa ako) and I admire you so much for that. Tas like, gwapa kayka as in frfr (puwede na isabak sa miss universe). Hehe anyway, I hope you always remember that EWL will constantly be here for you. Here’s to more birthdays, memories, and moments to celebrate with you!! labyoo always, Luisaaa🫶🫶
+</div>
+        <div id="Letter5" class="letter-note"><strong>Brex:</strong>
+			<br>hii, ysa! bappy hirthday!! i know we've only really known each other and be close together later than most of the ewl girls, but in those short moments we've spent together as friends, i just want to let you know nga mura na tag dugay na kaayo nga mag friends and i cherish them deep inside my heart because im sweet like that HAHAHAH. yeah i know this letter is not what i usually show u guys (being sweet) but kay bortdi man nimo, ebebegey ke ne te seye. enjoy your very own day, scammer 🥱 lovelots from brebre! </div>
+        <div id="Letter6" class="letter-note"><strong>Jana:</strong>
+			<br>HI LUISAAAA!!! ARF ARFF ARFF HAPPIEST BIRTHDAY TO YOUUU🎉✨ 
+			WAAAHH 17 NA SIYAA HAPIT NAKA MA LEGAL! BITAWW CONTINUE TO GROW 
+			AS AN AMAZING WOMAN AS YOU ARE RIGHT NOW🥰AND SANA MORE BLESSINGS
+			TO COME FOR YOU KASI DESERVE MO YONN🩷🩷🩷GOD BLESS DEARRR AND 
+			ENJOY YOUR SPECIAL DAY!🩷✨🩷</div>
+        <div id="Letter7" class="letter-note"><strong>zee/zy:</strong>
+			<br>hapi hapi burday mader, tenkyu for never aber making me starve and uhh huroting my kwartas and uhh beingg my mader, adn uhh being very funneyh hapi hapi burrdeyyy</div>
+        <div id="Letter8" class="letter-note"><strong>Lelet:</strong>
+			<br>hiii yssaaaa!! happy birthdayyy, pretty girlll! I’m wishing you all the best best sa imong daaayyy and all the days ahead pd ofccc. big BIG hope na I can get to know you moreee before the school year ends ❤❤❤ stay pretty, stay happy, stay cute, stay youuuu. labyo kadaghan, luisaaa mwa</div>
+        <div id="Letter9" class="letter-note"><strong>Vel 🌑🧃:</strong>
+			<br>HAPPIBIDET!!! 🥳🎂
+
+			Maligayang kaarawan pooo. Hindi ko alam kung anong sasabihin ko, pero sana masaya ang araw mo ngayon. Lalo na ngayon. I hope na maging maganda rin ang mga susunod pang mga araw para sayo. I'm so glad na nakilala kita plus naging kaibigan ko pa. Stay pretty, confident, and all. Sana palagi kang okay, and don't push yourself too hard po sa pag-aaral kay makit-an jud nako usahay na murag wala nakay pahuway. Alagaan mo po sarili mo kahit sobrang busy na, and don't forget to smile palagi. And if mukhang nahihirapan ka na sa mga bagay-bagay or kung need mo ng tulong, pray ka lang and lumapit ka lang sa amin, or sa akin. Wala na akong masabi kaya happy birthday ulit:))</div>
+        <div id="Letter10" class="letter-note"><strong>ramraam hehehe:</strong>
+			<br>‎Our dearest, Luisa
+‎
+			‎Hiii Luisaaa, it’s me, your favorite ewl member!! I know, right? Thank youu so much for choosing me as your favorite friend, wanay bawiay. Anyways, happy, happy birthdaay. Yeey, birthday na ni Luisa… birthday na ni Luisa… yeyeyeyeee~~~💃🎶🎤💃💃. Btaw, seryoso HAHAHAHA dko kabalo mag seryosos letter. Anw, happyy 17th birthday, Luisaa!!
+			‎
+			‎Before anything else, I just want to congratulate youu—not only for surviving this year but also for getting out of your comfort zone, for being you fully, and for all of your improvements this year, esp sa personalityy (dili sad bati kag personality sauna noo, ikyk na hihi). I know you can’t really count me as your close nga close friend, but knowing you is such a great blessing that God gave to me. Naingon na nako ning jeza nga ikaw ang pinaka-unique nga tawo nga akong nailhan. I know we all have our unique ways and we are all unique, pero for me, it’s you that stands out. De na nako iexplain, but yes, that’s it. And I’m so grateful to have someone such as pretty (yes, gwapahan kayko nimo, balo ka ana), kind (nga dele? charzz), genuine, and caring nga person (balo kong caring ka, de lang ka pahalata) like youu.
+			‎
+			‎We may have some things nga wala naingon sa each other, but I hope all hatred will be left in 2025 haa? mwehhehehe—love, joy, hope lang tang dring dapita. Btw, I am so, so happy for you, luisa. I hope you know nga happy kayko for you with ate feby. Unexpected man kaayo for us, but we’re really happy nga you are happy, felt happier now, and more lovely.
+			‎
+			‎For your birthday, I’m wishing you all the best… actuallyy, we ni arriane hehe. I hope God will guide you always to the right path and sink you with love and happiness in your life. More birthdays to come, wissaa!! (bleee, wissa na tka), more candles to blow, and more smiles haa (kay pretty kayka mosmile, mwehhe).
+			‎
+			‎To end this not-so-seryoso nga letter, I just want to say nga careful with your heart haa? Relationship is a roller coaster nga maabot sa imong life so be careful with your each other’s heart, and don’t forget to always center si God sa inyong relationship, and expect everything will be better. I lovee youu!! Cheers to your so-close legal nga age, and to more things nga kaya nimo i-share nakoo, kay kiligon kayko hehehhehe. That’s all. Once again, happy happyy birthdaay!💗💗
+			‎
+			‎Not yours truly,
+			‎pinakagwapa and pinaka favorite nimo nga friend😉😙</div>
+        <div id="Letter11" class="letter-note"><strong>partner in crime (legit kay naa ta patyon HAHAHHA):</strong>
+			<br>Happiest birthday, Luisa!!
+			Akong newfound kakampi fr. 
+			I hope you enjoy your day tomorrow po, and that happy mo always ni ehem ehem. 😆
+
+			Andama na imong pusil, ha? Charot hehe
+
+			Stay prettyyy and hottie, Luisa!! And stay fire sa Filipino 🔥🔥
+			I wish na hatagan pa ka ug more candles to blow and more dates with your bebe love.
+
+			I love you girll, stay amazinggg 💗💗💗
+			Di nato na pansinon nang mga attention seeker uy, dili sha worth our time and energy HAHA.
+
+			ENJOYY YOUR DAYYY BEBE ISAAA 🤍🤍 (wow new nickname nako nimo kay Isa)
+
+			XOXO,
+			Killer girl 😝😘</div>
+        <div id="Letter12" class="letter-note"><strong>Lygem:</strong>
+			<br>Happy birthday skibidi ohio alpha sigma rizzler nga kusog mang bully sa roblox ug mag rage bait, may you have a happy happy birthday full of love and happiness😘 May this new age and new year bring you lots of great memories, fulfilled dreams, and growth— emotionally for strengthened and grounded relationships, mentally for stronger perseverance, and physically para naa na ka totoy og lubot. Although dili kaayo nako ma ingon, proud kaayo ko for how much you've grown and for the fact nga ikaw una naka uyab nato sa Hot & Spicy 👏🎉 I hope dili na kaayo ka kusog mag rage bait pero murag nabuotan naman jud ka karon eber since na meet nimo sya so thank you pud ni ate feby kay for the first time gi sendan  ko nimo og tiktok nga "you're so pretty like a lily" dili ra "cute kaayo ko". Grateful pud kaayo ko sa atong friendship kay daghan jud ko learn gikan nimo especially related anang sa mga pa street smart. Anyways happy birthday, happy new year, merry christmas, advance happy valentines day, og advance happy independence day mwah💋</div>
+        
+        <div id="Letter13" class="letter-note"><strong>Kaye:</strong>
+			<br>happy birthdayy luisa!! i wish that you have a very blessed year ahead, with God always by your side. i hope na mapuno ug happy moments imong new chapter in life ug ma-achieve nimo ang tanang things na you want to achieve. enjoy your dayy hehe and ss mong pebe🤌 happy birthday and happy new yearrr daan!!</div>
+        <div id="Letter14" class="letter-note"><strong>Frayle ng Pisay:</strong>
+			<br>Hello 
+
+		Happy Birthday! 🎉
+		I just wanted to say thank for arriving in Phoebe’s formerly single ass life😝Tbh, ever since you came into the picture, I noticed phoebe being happier, brighter, and happier gabalik2 nako anyway you bring out such a good energy in her, and it’s really nice to see someone treat her with the care and joy she deserves. I’m genuinely grateful that you found each other, because i know Phoebe’s life feels a little warmer with you in it.
+
+		I hope your birthday is filled with love, laughter, and all the good things you bring into Phoebe’s world every day. You deserve it. 💐
+
+		With love,
+		Frayle family - kabit ni phoebilat(joke)!
+			</div>
+		<div id="Letter15" class="letter-note"><strong>Kird:</strong>
+			<br>Hello 
+
+			Happy Birthday! 🎉
+			I just wanted to say thank for arriving in Phoebe’s formerly single ass life😝Tbh, ever since you came into the picture, I noticed phoebe being happier, brighter, and happier gabalik2 nako anyway you bring out such a good energy in her, and it’s really nice to see someone treat her with the care and joy she deserves. I’m genuinely grateful that you found each other, because i know Phoebe’s life feels a little warmer with you in it.
+
+			I hope your birthday is filled with love, laughter, and all the good things you bring into Phoebe’s world every day. You deserve it. 💐
+
+			With love,
+			Frayle family - kabit ni phoebilat(joke)</div>
+					<!-- Special Message -->
         <div id="Special" class="letter-note">
             <strong>To My Love:</strong><br>
-            Happy Birthday, my darling! 🎉💖 You are the most special person in my life, and I made this gift just for you.  
-            I hope every day with me makes you smile as much as you make me smile. I love you endlessly! ❤️
+            Hiii lovee, you are 17 now, imagine, tiguwang na charez HSHSHHS. Honestly, I was not expecting this kind of plot twist to happen. You were just someone I used to play Roblox with, some junior I just met, someone na mag bus pauli, and then BOOM 💥! Suddenly we were going on so many hangouts, sunset laag, photo booths, sleepovers, deep talks, and so many other things I cannot even think of. Dugay na baya ko nakabantay nga murag naa kay feelings nako, but still I didn’t want to assume cause kadako sa akong ego diba, and I thought di ra ko maibog nimo kay you’re my friend. But then I found myself always craving your presence, your laugh, your smile, and everything you do. Kabalo ka, even if wala kay gibuhat, di nako ma avoid nga motan-aw nimo. I don’t know, but I instantly realized that I’ve fallen for you when I was always looking for you, in every corner, even sa bus stop tambay I was always hoping na unta wa pa naabot ang bus para makatambay pa ko kuyog ninyo and makita taka, in every interaction I had with your friends kay ikaw moy motive nako, ikaw moy tuyo nako. You know what everytime mag sunset laag tah nga maabtan tag gabie, you guys may not know pero dako kayo nga peace inyong gihatag nako, specially you, in every laag we had kay mao pd toh ang time nga nagkadako akong feelings para nimo. I'm face blind but then suddenly I saw the physical traits you have, your beautiful smile, your sincere eyes, and very cute na ilong na nindot birahon, your very clear face and every time I discovered something new about you kay kiligon ko or ma happy nga inana ka. When I decided na i confront tika that was the time na willing ko nga ilabay akong pride ug dignidad para ako moy una mo confront nimo, and I did not know na it would lead to what we have right now. Ikaw nga ginabinuangan ra nako sauna ug gina away away ra unya karun kay murag naibog na kayko nimo nga di nako ma explain ngano, wa ko kabalo actually it was a sudden feeling that I felt, not the crush crush lang type of but the feeling nga murag comfortable ra kaayo ko nimo nga murag ma feel nako nga I can be what I want to be if I'm with you. I love the simple things we do, the way we hold hands, the way na mag hug tah it feels so comfortable, even when you're not doing anything and I'm just looking at you wa ka kabalo ana pero mao na ang time nga maghuna huna ko kong unsa taka ka love HSHASHAHS. Para nako ikaw moy makaingon ko nga caring kaayo nga pagkatao, someone nga kabalo kong protektahan iyahang friends bahalag kinsa pa ng kontraha. I lovee youu soo muchh my pretty morena girl, this may not be much pero sana ma feel mo kung unsa ka ka love sa mga tawo around you through this simple website I made and composed with everyone's heartfelt messages and also ang mga panghitabo sa ilang life nga naa ka nga did gyud namo makalimtan. Happpyy Birthdayyy my Loveee!!!💋 I loveeee youuu soo much!! Mahal kita aking sintang iniibig💗
         </div>
 
         <br>
@@ -221,6 +414,11 @@
     <br>
     <button class="button" onclick="showPage('homepage')">Back to Home</button>
 </div>
+<audio id="bg-music">
+  <source src="germany.mp3" type="audio/mpeg">
+  <source src= "loveis.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
 <script>
 function showPage(pageId) {
@@ -242,6 +440,29 @@ function backToGrid() {
     document.getElementById('full-letters').style.display = 'none';
     document.getElementById('names-grid').style.display = 'grid';
 }
+
+const music = document.getElementById('bg-music');
+const playlist = ['germany.mp3', 'loveis.mp3'];
+let currentTrack = 0;
+
+// Function to play music
+function playMusic() {
+  music.src = playlist[currentTrack];
+  music.play().catch(() => {
+    console.log('Autoplay blocked, wait for user interaction.');
+  });
+}
+
+// Move to next track when ended
+music.addEventListener('ended', () => {
+  currentTrack++;
+  if(currentTrack >= playlist.length) currentTrack = 0; // loop
+  music.src = playlist[currentTrack];
+  music.play();
+});
+
+// Play music after first click anywhere on page
+document.body.addEventListener('click', playMusic, { once: true });
 </script>
 
 </body>
